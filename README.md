@@ -1,4 +1,8 @@
 # brandvista
+```
+https://app.moqups.com/EbADA9lJuRqmDoahJA1oJABEEDf1m61q/share
+```
+
 
 ## Project setup
 ```
@@ -17,3 +21,8 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### TAREAS
+. Falta crear 5 datasets de imagenes para la prueba
+. Mejorar la calidad del vue
+. Chamo mamawebo
