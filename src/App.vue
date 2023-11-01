@@ -1,6 +1,8 @@
 <template>
   <nav>
-    <router-link class="dropbtn" to="/">Home</router-link> |
+    <div class="dropdown">
+      <router-link class="dropbtn" to="/">Home</router-link>
+    </div>
     <div class="dropdown">
       <button class="dropbtn">Sobre Nosotros</button>
       <div class="dropdown-content">
@@ -26,10 +28,15 @@
         <a><router-link to="/">Facebook</router-link></a>
       </div>
     </div>
-    <router-link v-if="!isLoggedIn" to="/login" :isLoggedIn=false>Login</router-link> |
-    <router-link v-if="isLoggedIn" to="/home" :isLoggedIn=false>LogOut</router-link> |
-    <a class="dropdown"><FuncionesUsuario/></a>
-    <RouterLink to="/predecir">PREDECIR</RouterLink>
+
+    <div class="dropdown">
+      <router-link v-if="!isLoggedIn" to="/login" :isLoggedIn=false>Login</router-link>
+    </div>
+
+    <div v-if="isLoggedIn" class="dropdown">
+      <FuncionesUsuario class="dropbtn" />
+    </div>
+
   </nav>
   <router-view/>
   
@@ -63,6 +70,7 @@ nav {
   padding: 30px;
   border: 3px solid;
   border-color: black;
+  background-color: #04AA6D;
 }
 
 nav a {

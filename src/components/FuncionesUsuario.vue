@@ -1,6 +1,6 @@
 <template>
     <div class="funciones-usuario">
-        <h3>ARMANI</h3>
+        <RouterLink to="/predecir">Predecir</RouterLink>
     </div>
 </template>
 
