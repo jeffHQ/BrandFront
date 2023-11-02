@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="dropdown">
-      <router-link class="dropbtn" to="/">Home</router-link>
+      <a><router-link class="dropbtn" to="/">Home</router-link></a>
     </div>
     <div class="dropdown">
       <button class="dropbtn">Sobre Nosotros</button>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="dropdown">
-      <router-link v-if="!isLoggedIn" to="/login" :isLoggedIn=false>Login</router-link>
+      <a><router-link class="dropbtn" v-if="!isLoggedIn" to="/login" :isLoggedIn=false>Login</router-link></a>
     </div>
 
     <div v-if="isLoggedIn" class="dropdown">
@@ -59,6 +59,12 @@ export default {
 </script>
 
 <style>
+
+
+body {
+  margin: 0px;
+  }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -66,25 +72,30 @@ export default {
   color: #2c3e50;
 }
 
+
 nav {
   padding: 30px;
   border: 3px solid;
   border-color: black;
-  background-color: #04AA6D;
+  background-color: #583d34;
 }
 
 nav a {
-  font-weight: bold;
   color: #2c3e50;
 }
 
+a:-webkit-any-link {
+  text-decoration: none; /* Eliminar el subrayado */
+}
+
 nav a.router-link-exact-active {
-  color: #42b983;
+  text-decoration: none; /* Eliminar el subrayado */
+  color: #9e8d77;
 }
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #04AA6D;
+  background-color: #583d34;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -120,19 +131,20 @@ nav a.router-link-exact-active {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #517f83;
 
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  background-color: #253532;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-  
+  background-color: #253532;
+  color: #517f83;
   transition: background-color 0.5s;
   }
 </style>

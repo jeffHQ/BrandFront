@@ -31,6 +31,7 @@
     border: 3px solid;
     border-color: black;
     display: flex;
+    background-color: #9e8d77;
   }
   
   .sub_div {

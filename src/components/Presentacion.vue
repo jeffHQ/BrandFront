@@ -19,6 +19,7 @@
         border: 3px solid;
         border-color: black;
         text-align: center;
+        background-color: #583d34;
     }
 
   h1 {
