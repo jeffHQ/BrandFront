@@ -33,7 +33,6 @@
 
 a {
   padding: 10px;
-  color: ;
 }
 
 a:-webkit-any-link {
