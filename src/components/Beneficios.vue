@@ -59,6 +59,10 @@ export default {
 </script>
 
 <style scoped>
+
+.texto {
+    padding-left: 30px;
+}
 .titulo {
     padding-top: 50px;
 }
@@ -78,8 +82,12 @@ h3 {
     text-align: justify;
 }
 
-.icono {
+img {
     padding: 10px;
+    border: 2px solid;
+    border-color: #d1c5ab;
+    border-radius: 30%;
+    background-color: #d1c5ab;
 }
 
 .sub-sub-beneficios {
