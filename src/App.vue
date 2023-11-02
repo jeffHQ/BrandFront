@@ -74,13 +74,12 @@ export default {
 
 body {
   margin: 0px;
-  }
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
 
@@ -94,7 +93,6 @@ nav {
 }
 
 nav a {
-  color: #2c3e50;
 }
 
 a:-webkit-any-link {
@@ -119,7 +117,6 @@ nav a.router-link-exact-active {
 .dropbtn2 {
   background-color: #b19a78;
   color: white;
-  padding: 16px;
   font-size: 16px;
   border: none;
   margin-left: auto;
@@ -151,7 +148,6 @@ nav a.router-link-exact-active {
 /* Links inside the dropdown */
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
   text-decoration: none;
   display: block;
   

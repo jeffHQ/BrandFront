@@ -49,9 +49,11 @@
   
   .title_section {
     font-weight: bold;
+    color: #363634;
   }
   
   .part_section {
+    color: #363634;
   }
   </style>
   

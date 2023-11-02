@@ -6,11 +6,11 @@
         </div>
 
         <div class="item">
-            <h3>{{ name }}</h3>
+            <a>{{ name }}</a>
         </div>
 
         <div class="item">
-            <RouterLink to="/predecir">Predecir</RouterLink>
+            <a><RouterLink class="router-link" to="/predecir">Predecir</RouterLink></a>
         </div>
 
         
@@ -33,8 +33,24 @@ export default {
 
 <style>
 
+div a.router-link-exact-active {
+  text-decoration: none; /* Eliminar el subrayado */
+  color: white;
+  background-color: #524636;
+}
+
+h3 {
+    font-weight: lighter;
+    font-size: none;
+}
+
 img {
     width: 50px;
+}
+
+a {
+    color: white;
+    padding: 16px;
 }
 
 .funciones-usuario2 {
@@ -43,9 +59,16 @@ img {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    color: white;
 }
 
 .item {
-    padding: 10px;
+    color: white;
+}
+
+.router-link:hover {
+    background-color: #524636;
+    color: white;
+    transition: background-color 0.5s;
 }
 </style>
