@@ -29,9 +29,9 @@
   <style scoped>
   .piepagina {
     border: 3px solid;
-    border-color: black;
+    border-color: white;
     display: flex;
-    background-color: #9e8d77;
+    background-color: #d1c5ab;
   }
   
   .sub_div {

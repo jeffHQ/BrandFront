@@ -76,8 +76,8 @@ body {
 nav {
   padding: 30px;
   border: 3px solid;
-  border-color: black;
-  background-color: #583d34;
+  border-color: white;
+  background-color: #b19a78;
 }
 
 nav a {
@@ -90,12 +90,13 @@ a:-webkit-any-link {
 
 nav a.router-link-exact-active {
   text-decoration: none; /* Eliminar el subrayado */
-  color: #9e8d77;
+  color: white;
+  background-color: #524636;
 }
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #583d34;
+  background-color: #b19a78;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -132,19 +133,19 @@ nav a.router-link-exact-active {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #517f83;
-
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-  background-color: #253532;
+  background-color: #524636;
+
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #253532;
-  color: #517f83;
+  background-color: #524636;
+  color: white;
   transition: background-color 0.5s;
   }
 </style>
