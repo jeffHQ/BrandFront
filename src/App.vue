@@ -1,6 +1,8 @@
 <template>
   <nav>
-    <div class="dropdown">
+
+    <nav class="nav1">
+      <div class="dropdown">
       <a><router-link class="dropbtn" to="/">Home</router-link></a>
     </div>
     <div class="dropdown">
@@ -32,9 +34,13 @@
     <div class="dropdown">
       <a><router-link class="dropbtn" v-if="!isLoggedIn" to="/login" :isLoggedIn=false>Login</router-link></a>
     </div>
+    </nav>
 
-    <div v-if="isLoggedIn" class="dropdown">
-      <FuncionesUsuario class="dropbtn" />
+
+    
+
+    <div v-if="isLoggedIn" class="dropdown2">
+      <FuncionesUsuario class="dropbtn2" />
     </div>
 
   </nav>
@@ -60,6 +66,11 @@ export default {
 
 <style>
 
+.nav1 nav{
+  border: 3px solid;
+  border-color: white;
+  background-color: #b19a78;
+}
 
 body {
   margin: 0px;
@@ -74,10 +85,12 @@ body {
 
 
 nav {
-  padding: 30px;
+  padding: 10px;
   border: 3px solid;
   border-color: white;
   background-color: #b19a78;
+  display: flex;
+  align-items: center;
 }
 
 nav a {
@@ -103,10 +116,25 @@ nav a.router-link-exact-active {
   border: none;
 }
 
+.dropbtn2 {
+  background-color: #b19a78;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin-left: auto;
+}
+
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
+}
+
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
 }
 
 /* Dropdown Content (Hidden by Default) */
