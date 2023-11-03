@@ -8,49 +8,49 @@
         <li>
           <div class="equipo-member">
             <p>Alexandro Chamochumbi Gutierrez</p>
-            <img src="ruta/a/la/foto1.jpg" alt="Foto del Miembro 1" />
+            <img src="@/assets/alexandro.jpg" alt="Foto del Miembro 1" />
             <p>Rol: Desarrollador Frontend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
             <p>Ronaldo Flores de Soto</p>
-            <img src="ruta/a/la/foto2.jpg" alt="Foto del Miembro 2" />
+            <img src="@/assets/ronaldo.jpg" alt="Foto del Miembro 2" />
             <p>Rol: Desarrollador Frontend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
             <p>Rodo Vilcarromero Mocoso</p>
-            <img src="ruta/a/la/foto3.jpg" alt="Foto del Miembro 3" />
+            <img src="@/assets/rodo.jpg" alt="Foto del Miembro 3" />
             <p>Rol: Desarrollador Backend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
             <p>Salvador Olivares Leandro</p>
-            <img src="ruta/a/la/foto4.jpg" alt="Foto del Miembro 4" />
+            <img src="@/assets/salvadoreño.jpg" alt="Foto del Miembro 4" />
             <p>Rol: Desarrollador Backend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
             <p>Mauricio Alvarez Julca</p>
-            <img src="ruta/a/la/foto5.jpg" alt="Foto del Miembro 5" />
+            <img src="@/assets/mauricio.jpg" alt="Foto del Miembro 5" />
             <p>Rol: IA</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
             <p>Jeffry Hilario Quintana</p>
-            <img src="ruta/a/la/foto6.jpg" alt="Foto del Miembro 6" />
+            <img src="@/assets/venezuela.jpg" alt="Foto del Miembro 6" />
             <p>Rol: Team Leader</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
             <p>Diego Pacheco Ferrel</p>
-            <img src="ruta/a/la/foto7.jpg" alt="Foto del Miembro 7" />
+            <img src="@/assets/diego.jpg" alt="Foto del Miembro 7" />
             <p>Rol: IA</p>
           </div>
         </li>
@@ -109,7 +109,8 @@ export default {
 }
 
 .equipo-member img {
-  max-width: 100%;
+  width: 220px;
+  height: 200px;
 }
 
 .equipo-member p {
