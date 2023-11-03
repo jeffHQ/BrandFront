@@ -7,51 +7,51 @@
       <ul>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 1</p>
+            <p>Alexandro Chamochumbi Gutierrez</p>
             <img src="ruta/a/la/foto1.jpg" alt="Foto del Miembro 1" />
-            <p>Rol: Diseñador de Interfaz</p>
+            <p>Rol: Desarrollador Frontend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 2</p>
+            <p>Ronaldo Flores de Soto</p>
             <img src="ruta/a/la/foto2.jpg" alt="Foto del Miembro 2" />
             <p>Rol: Desarrollador Frontend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 3</p>
+            <p>Rodo Vilcarromero Mocoso</p>
             <img src="ruta/a/la/foto3.jpg" alt="Foto del Miembro 3" />
             <p>Rol: Desarrollador Backend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 4</p>
+            <p>Salvador Olivares Leandro</p>
             <img src="ruta/a/la/foto4.jpg" alt="Foto del Miembro 4" />
-            <p>Rol: Especialista en Seguridad Web</p>
+            <p>Rol: Desarrollador Backend</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 5</p>
+            <p>Mauricio Alvarez Julca</p>
             <img src="ruta/a/la/foto5.jpg" alt="Foto del Miembro 5" />
-            <p>Rol: Analista de Datos</p>
+            <p>Rol: IA</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 6</p>
+            <p>Jeffry Hilario Quintana</p>
             <img src="ruta/a/la/foto6.jpg" alt="Foto del Miembro 6" />
-            <p>Rol: Especialista en Experiencia de Usuario</p>
+            <p>Rol: Team Leader</p>
           </div>
         </li>
         <li>
           <div class="equipo-member">
-            <p>Nombre del Miembro 7</p>
+            <p>Diego Pacheco Ferrel</p>
             <img src="ruta/a/la/foto7.jpg" alt="Foto del Miembro 7" />
-            <p>Rol: Gerente de Proyecto</p>
+            <p>Rol: IA</p>
           </div>
         </li>
       </ul>
