@@ -3,16 +3,16 @@
       <div class="sub_div">
         <ul class="menu">
           <a class="title_section">Sobre Nosotros</a>
-          <a><router-link class="router-link" to="/">Fundacion</router-link></a>
-          <a><router-link class="router-link" to="/">Objetivos</router-link></a>
-          <a><router-link class="router-link" to="/">Equipo</router-link></a>
+          <a><router-link class="router-link" to="/fundacionview">Fundacion</router-link></a>
+          <a><router-link class="router-link" to="/objetivosview">Objetivos</router-link></a>
+          <a><router-link class="router-link" to="/equipoview">Equipo</router-link></a>
         </ul>
       </div>
       <div class="sub_div">
         <ul class="menu">
           <a class="title_section">Documentacion</a>
-          <a><router-link class="router-link" to="/">Guia de Uso</router-link></a>
-          <a><router-link class="router-link" to="/">API's</router-link></a>
+          <a><router-link class="router-link" to="/guiaview">Guia de Uso</router-link></a>
+          <a><router-link class="router-link" to="/apiview">API's</router-link></a>
         </ul>
       </div>
       <div class="sub_div">
