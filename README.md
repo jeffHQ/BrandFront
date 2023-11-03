@@ -1,4 +1,4 @@
-![image](https://github.com/jeffHQ/BrandFront/assets/103541640/96e9e549-f258-4055-9b88-00a96b258bf3)# BrandVista
+# BrandVista
 
 BrandVista es una innovadora aplicación de publicidad que permite crear campañas de manera rápida y eficiente, brindando una serie de beneficios, como ahorro de tiempo y dinero. La aplicación utiliza inteligencia artificial (IA) para analizar imágenes de tu público objetivo y generar propuestas de campañas publicitarias personalizadas.
 
