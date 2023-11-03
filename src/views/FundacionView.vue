@@ -7,6 +7,7 @@
         <p>Nuestra fundación es una organización sin fines de lucro comprometida con la promoción y apoyo de iniciativas de marketing innovadoras. Trabajamos en estrecha colaboración con pequeñas y medianas empresas para ayudarles a alcanzar sus objetivos comerciales a través de estrategias de marketing efectivas.</p>
         <p>En la Fundación, creemos en la importancia de la investigación y el análisis de datos para tomar decisiones informadas en marketing. Nuestro equipo de expertos se dedica a brindar asesoramiento y recursos que permiten a las empresas comprender mejor a sus clientes y mejorar sus estrategias de marketing.</p>
         <p>Colaboramos con empresas de diversos sectores para fomentar la creación de estrategias sólidas que se adapten a sus necesidades y metas. Nuestro objetivo es contribuir al crecimiento y éxito de las empresas a través de la aplicación de prácticas de marketing efectivas y centradas en el cliente.</p>
+        <img src="@/assets/team.jpg" alt="Image of the group" class="group-image" style="width: 400px; height: 200px;"/>
         </div>
       </div>
     </div>
