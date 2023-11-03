@@ -44,7 +44,7 @@
           <div class="equipo-member">
             <p>Jeffry Hilario Quintana</p>
             <img src="@/assets/venezuela.jpg" alt="Foto del Miembro 6" />
-            <p>Rol: Team Leader</p>
+            <p>Rol: Accionista mayoritario (temporal)</p>
           </div>
         </li>
         <li>
