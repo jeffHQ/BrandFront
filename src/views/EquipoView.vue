@@ -1,6 +1,8 @@
 <template>
   <div class="home" >
-    <div class="equipo-title">EQUIPO</div>
+    <div class="equipo-title">
+      <h2>EQUIPO</h2>
+    </div>
     <div class="equipo-list">
       <ul>
         <li>
@@ -76,11 +78,18 @@ export default {
 
 .equipo-title {
   text-align: center;
-  font-size: 24px; 
-  margin-top: 20px; 
-  color: #363634;
-  font-weight: bold;
+  padding: 20px;
 }
+
+.equipo-title h2 {
+  background-color: #d1c5ab;
+  padding: 10px;
+  border: 2px solid #524636;
+  border-radius: 10px;
+  font-size: 28px;
+  display: inline;
+}
+
 .equipo-list ul {
   list-style: none;
   padding: 0;
