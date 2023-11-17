@@ -8,19 +8,23 @@
       <img v-if="imagenSeleccionada" :src="imagenSeleccionadaUrl" class="image-preview" alt="Vista previa de la imagen" />
       <button type="submit" class="upload-button">Enviar</button>
       <button @click="mostrarImagenSeleccionada"> Mostrar</button>
-      <div>
-  <img v-for="(image, index) in imagenesSeleccionadas" :key="index" :src="image" alt="Selected image">
-  </div>
-    </form>
-      <div class="checkbox-container">
-        <h3>Selecciona las clases:</h3>
-        <div v-for="(value, key) in classes" :key="key" class="checkbox-item">
-          <input type="checkbox" :id="key" :value="key" v-model="selectedClasses" >
-          <label :for="key">{{ value }}</label>
-        </div>
-      <button @click="agregarOpcion"> Agregar Opcion</button>
-      </div>
+    <div>
+      <img v-for="(image, index) in imagenesSeleccionadas" :key="index" :src="image" alt="Selected image">
     </div>
+  </form>
+  <div class="title-text">
+    <label for="title">Titulo</label>
+    <input type="text" id="title" v-model="title" placeholder="Ingrese la tematica de su campaña" />
+  </div>
+    <div class="checkbox-container">
+      <h3>Selecciona las clases:</h3>
+      <div v-for="(value, key) in classes" :key="key" class="checkbox-item">
+        <input type="checkbox" :id="key" :value="key" v-model="selectedClasses" >
+        <label :for="key">{{ value }}</label>
+      </div>
+    <button @click="agregarOpcion"> Agregar Opcion</button>
+    </div>
+  </div>
   <PiePagina />
 </template>
 
@@ -38,7 +42,7 @@ export default {
                 10: 'cow', 11: 'diningtable', 12: 'dog', 13: 'horse',
                 14: 'motorbike', 15: 'person', 16: 'pottedplant',
                 17: 'sheep', 18: 'sofa', 19: 'train', 20: 'tvmonitor' },
-      title: null,
+      title: "",
       selectedClasses: [],
       imagenesSeleccionadas: [],
     };
@@ -51,12 +55,13 @@ export default {
   },
   methods: {
     setPhotoFiles (fieldName, fileList) {
-      this.photoFiles = fileList;
-      console.log(this.photoFiles);
+      this.photoFiles = [...fileList];
       //mostrarImagenSeleccionada();
     },
     mostrarImagenSeleccionada() {
       // show all the images selected
+      // reset the photos already shown
+      this.imagenesSeleccionadas = [];
       if (this.photoFiles.length > 0) {
         for (let i = 0; i < this.photoFiles.length; i++) {
           const reader = new FileReader();
@@ -71,12 +76,13 @@ export default {
       event.preventDefault();
       const formData = new FormData();
       this.photoFiles.forEach((element, index, array) => {
-      formData.append('photo-' + index, element);
+      formData.append('images[]', element);
       });
-      formData.append('selected_classes', this.classes);
+      formData.append('selected_classes', JSON.stringify(Object.keys(this.selectedClasses)));
       formData.append('title', this.title);
 
-      axios.post("http://localhost:4000/segmentation/", formData)
+      axios.post("http://localhost:5000/procesar_seg", formData,
+      { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(function (result) {
         console.log(result);
       }, function (error) {
