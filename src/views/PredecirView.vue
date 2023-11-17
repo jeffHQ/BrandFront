@@ -2,68 +2,100 @@
   <div class="predecir-view">
     <form @submit="enviarImagen">
       <label for="fileInput" class="file-label">
-        <input type="file" id="fileInput" ref="fileInput" accept="image/*" @change="cargarImagen" />
+        <input type="file" id="fileInput" ref="fileInput" accept="image/*" multiple @change="setPhotoFiles($event.target.name, $event.target.files)" />
         Subir Imagen
       </label>
       <img v-if="imagenSeleccionada" :src="imagenSeleccionadaUrl" class="image-preview" alt="Vista previa de la imagen" />
       <button type="submit" class="upload-button">Enviar</button>
-    </form>
+      <button @click="mostrarImagenSeleccionada"> Mostrar</button>
+      <div>
+  <img v-for="(image, index) in imagenesSeleccionadas" :key="index" :src="image" alt="Selected image">
   </div>
+    </form>
+      <div class="checkbox-container">
+        <h3>Selecciona las clases:</h3>
+        <div v-for="(value, key) in classes" :key="key" class="checkbox-item">
+          <input type="checkbox" :id="key" :value="key" v-model="selectedClasses" >
+          <label :for="key">{{ value }}</label>
+        </div>
+      <button @click="agregarOpcion"> Agregar Opcion</button>
+      </div>
+    </div>
   <PiePagina />
 </template>
 
 <script>
 import PiePagina from '@/components/PiePagina.vue'
+import axios from 'axios';
 
 export default {
   name: 'PredecirView',
   data() {
     return {
-      imagenSeleccionada: null,
-      imagenSeleccionadaUrl: null,
+      photoFiles: [],
+      classes:{ 0: 'background',1: 'aeroplane', 2: 'bicycle', 3: 'bird', 4: 'boat',
+                5: 'bottle', 6: 'bus', 7: 'car', 8: 'cat', 9: 'chair',
+                10: 'cow', 11: 'diningtable', 12: 'dog', 13: 'horse',
+                14: 'motorbike', 15: 'person', 16: 'pottedplant',
+                17: 'sheep', 18: 'sofa', 19: 'train', 20: 'tvmonitor' },
+      title: null,
+      selectedClasses: [],
+      imagenesSeleccionadas: [],
     };
+  },
+  created() {
+    this.selectedClasses = Object.keys(this.classes); // Set selectedClasses to the keys of classes after the component is created
   },
   components: {
     PiePagina,
   },
   methods: {
-    cargarImagen(event) {
-      this.imagenSeleccionada = event.target.files[0];
-      this.mostrarImagenSeleccionada();
+    setPhotoFiles (fieldName, fileList) {
+      this.photoFiles = fileList;
+      console.log(this.photoFiles);
+      //mostrarImagenSeleccionada();
     },
     mostrarImagenSeleccionada() {
-      if (this.imagenSeleccionada) {
-        const reader = new FileReader();
-        reader.readAsDataURL(this.imagenSeleccionada);
-        reader.onload = (e) => {
-          this.imagenSeleccionadaUrl = e.target.result;
-        };
-      } else {
-        this.imagenSeleccionadaUrl = null;
-      }
+      // show all the images selected
+      if (this.photoFiles.length > 0) {
+        for (let i = 0; i < this.photoFiles.length; i++) {
+          const reader = new FileReader();
+          reader.addEventListener('load', () => {
+            this.imagenesSeleccionadas.push(reader.result);
+          });
+          reader.readAsDataURL(this.photoFiles[i]);
+        }
+      }      
     },
     enviarImagen(event) {
       event.preventDefault();
       const formData = new FormData();
-      formData.append('imagen', this.imagenSeleccionada);
+      this.photoFiles.forEach((element, index, array) => {
+      formData.append('photo-' + index, element);
+      });
+      formData.append('selected_classes', this.classes);
+      formData.append('title', this.title);
 
-      fetch('http://127.0.0.1:5000/predict', {
-        method: 'POST',
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log('La imagen se ha subido con éxito:', data);
-        })
-        .catch(error => {
-          console.error('Error al subir la imagen:', error);
-        });
+      axios.post("http://localhost:4000/segmentation/", formData)
+      .then(function (result) {
+        console.log(result);
+      }, function (error) {
+        console.log(error);
+      });
     },
   },
 };
 </script>
 
 <style scoped>
+.checkbox-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      
+    }
 .predecir-view {
   display: flex;
   flex-direction: column;
