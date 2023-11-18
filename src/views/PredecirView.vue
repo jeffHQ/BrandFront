@@ -1,20 +1,21 @@
 <template>
   <div class="predecir-view">
-    <form @submit="enviarImagen">
+    <form class="submit-form" @submit="enviarImagen">
       <label for="fileInput" class="file-label">
         <input type="file" id="fileInput" ref="fileInput" accept="image/*" multiple @change="setPhotoFiles($event.target.name, $event.target.files)" />
         Subir Imagen
       </label>
-      <img v-if="imagenSeleccionada" :src="imagenSeleccionadaUrl" class="image-preview" alt="Vista previa de la imagen" />
+    <div class="buttons">
       <button type="submit" class="upload-button">Enviar</button>
-      <button @click="mostrarImagenSeleccionada"> Mostrar</button>
-    <div>
+      <button @click="mostrarImagenSeleccionada" class="upload-button"> Mostrar</button>
+    </div>
+    <div class="image-container">
       <img v-for="(image, index) in imagenesSeleccionadas" :key="index" :src="image" alt="Selected image">
     </div>
   </form>
   <div class="title-text">
-    <label for="title">Titulo</label>
-    <input type="text" id="title" v-model="title" placeholder="Ingrese la tematica de su campaña" />
+    <label for="title"></label>
+    <input type="text" class="title-input" v-model="title" placeholder="Ingrese la tematica de su campaña" />
   </div>
     <div class="checkbox-container">
       <h3>Selecciona las clases:</h3>
@@ -22,7 +23,7 @@
         <input type="checkbox" :id="key" :value="key" v-model="selectedClasses" >
         <label :for="key">{{ value }}</label>
       </div>
-    <button @click="agregarOpcion"> Agregar Opcion</button>
+    <!--button @click="agregarOpcion"> Agregar Opcion</!--button-->
     </div>
   </div>
   <PiePagina />
@@ -48,7 +49,7 @@ export default {
     };
   },
   created() {
-    this.selectedClasses = Object.keys(this.classes); // Set selectedClasses to the keys of classes after the component is created
+    // this.selectedClasses = Object.keys(this.classes);  
   },
   components: {
     PiePagina,
@@ -113,35 +114,83 @@ export default {
 }
 
 .file-label {
-  display: block;
-  margin-bottom: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
+  background-color: #828f97;
+  color: #fff5f5;
+  padding: 10px 20px;
+  margin: 20px;
+  border: 10px;
+  border-radius: 4px;
 }
 
 #fileInput {
   display: none;
+  
 }
 
-.image-preview {
-  max-width: 1000px;
-  max-height: 300px;
-  margin-top: 10px;
-  width: 500px;
+/* Container for images */
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 100px; 
+  justify-items: center; 
+  align-items: center;
+}
+
+/* Style for each image */
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease;
+
+}
+/* Hover effect */
+.image-container img:hover {
+  transform: scale(1.35); /* Slightly enlarge the image */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Aligns items along the main axis (horizontally) */
+  gap: 10px; /* Adjust the space between buttons */
 }
 
 .upload-button {
+  /* Your button styles */
   background-color: #3498db;
-  color: #fff;
+  color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px;
 }
 
 .upload-button:hover {
-  background-color: #2188c3;
-  transform: scale(1.1);
+  background-color: #2980b9;
+}
+
+.title-text {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  width: 33%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.title-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+  background: transparent;
 }
 </style>
