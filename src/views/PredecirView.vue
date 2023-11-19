@@ -36,7 +36,7 @@
   <div class="flex justify-center">
     <div class="w-full md:w-3/4 lg:w-1/2 xl:w-2/5">
       <div class="relative w-full min-w-[200px]">
-        <textarea v-model="detalles"
+        <textarea v-model="caracteristicas"
           class="peer h-full min-h-[300px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
           placeholder=" "></textarea>
         <label
@@ -68,23 +68,26 @@
 
   <div class="flex justify-center">
     <button @click="enviarDatos" type="button"
-      class="py-2.5 px-5 me-2 mb-10 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Generar
-      Campaña</button>
+      class="py-2.5 px-5 me-2 mb-10 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+      Generar Campaña</button>
   </div>
   <PiePagina />
 </template>
 
 <script>
 import PiePagina from '@/components/PiePagina.vue'
+import axios from 'axios';
 
 export default {
   name: 'PredecirView',
   data() {
     return {
+      img: [],
       images: [],
+      classes: [1,2,3,4],
       tematica: '',
       rubro: '',
-      detalles: '',
+      caracteristicas: '',
     };
   },
   components: {
@@ -92,6 +95,7 @@ export default {
   },
   methods: {
     cargarImagen(event) {
+      this.img = [event.target.files];
       const files = event.target.files;
       for (let i = 0; i < files.length; i++) {
         this.images.push(URL.createObjectURL(files[i]));
@@ -102,21 +106,23 @@ export default {
       this.images.splice(index, 1);
     },
     async enviarDatos() {
-
-      this.$router.push('/view_campaign');
-      /*
-      const response = await fetch('tu_endpoint', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tematica: this.tematica, rubro: this.rubro, detalles: this.detalles })
+      const formData = new FormData();
+      formData.append('tematica', this.tematica);
+      formData.append('rubro', this.rubro);
+      formData.append('selected_classes', this.selectedClasses);
+      formData.append('caracteristicas', this.caracteristicas);
+      this.img.forEach((element, index, array) => {
+      formData.append('images[]', element);
+      });
+      axios.post("http://localhost:5000/procesar_seg", formData,
+      { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then(function (result) {
+        console.log(result);
+      }, function (error) {
+        console.log(error);
       });
 
-      if (response.ok) {
-        this.$router.push('/view_campaign');
-      } else {
-        // maneja el error
-      }*/
-    }
+    },
   },
 };
 </script>
