@@ -8,6 +8,7 @@ import GuiaView from '../views/GuiaView.vue'
 import FundacionView from '../views/FundacionView.vue'
 import EquipoView from '../views/EquipoView.vue'
 import APIView from '../views/APIView.vue'
+import ViewCampaignView from '../views/ViewCampaignView.vue'
 
 const routes = [
   {
@@ -21,9 +22,14 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/predecir',
-    name: 'predecir',
+    path: '/generate',
+    name: 'generate',
     component: PredecirView
+  },
+  {
+    path: '/view_campaign',
+    name: 'view_campaign',
+    component: ViewCampaignView
   },
   {
     path: '/objetivosview',
