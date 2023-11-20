@@ -11,6 +11,10 @@
 
   <img class="rounded-full w-[500px] h-[400px] mt-8 mb-8" src="/Padre.webp" alt="image description">
 
+  <div class="relative overflow-x-auto w-[1000px] mx-auto mb-10">
+    <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-black">{{ campaign.DESCRIPCION }}</h2>
+  </div>
+
   <div class="relative overflow-x-auto w-[700px] mx-auto mb-10">
     <table class="w-full text-sm text-left text-gray-700">
       <thead class="text-xs text-gray-900 uppercase bg-gray-200">
@@ -21,90 +25,35 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="bg-white border-b border-gray-400">
+        <tr class="bg-white border-b border-gray-400" v-for="(nombre, index) in campaign.NOMBRES" :key="index">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            Héroes de casa: Celebrando a papá
-          </th>
-        </tr>
-        <tr class="bg-white border-b border-gray-400">
-          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            Gracias, Papá: Un día para celebrar
-          </th>
-        </tr>
-        <tr class="bg-white border-gray-400">
-          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            Papás protagonistas: Su día especial
+            {{ nombre }}
           </th>
         </tr>
       </tbody>
     </table>
   </div>
 
-
-  <div class="flex justify-center mt-4 mb-4">
+  <div class="flex justify-center mt-4 mb-4" v-for="(idea, index) in campaign.IDEAS" :key="index">
     <a href="#"
       class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mx-auto">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
         src="/personalizacion.jpg" alt="">
       <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Campañas personalizadas</h5>
-        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far,
-          in reverse chronological order.</p>
+        <p class="mb-3 font-normal text-gray-700">{{ idea }}</p>
       </div>
     </a>
   </div>
+  
+  <div class="flex justify-center mt-10 mb-10">
+  <ul class="relative border-s border-gray-200 dark:border-gray-700">                  
+    <li class="mb-10 ms-4" v-for="(colaboracion, index) in campaign.COLABORACIONES" :key="index">
+      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+      <p class="text-base font-normal text-gray-500 dark:text-gray-400">{{ colaboracion }}</p>
+    </li>
+  </ul>
+</div>
 
-  <div class="flex justify-center mt-4 mb-4">
-    <a href="#"
-      class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mx-auto">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-        src="/personalizacion.jpg" alt="">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Clima variado</h5>
-        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far,
-          in reverse chronological order.</p>
-      </div>
-    </a>
-  </div>
-
-  <div class="flex justify-center mt-4 mb-4">
-    <a href="#"
-      class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mx-auto">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-        src="/personalizacion.jpg" alt="">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Eventos y actividades temáticas</h5>
-        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far,
-          in reverse chronological order.</p>
-      </div>
-    </a>
-  </div>
-
-  <div class="flex justify-center mt-4 mb-4">
-    <a href="#"
-      class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mx-auto">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-        src="/personalizacion.jpg" alt="">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Marketing digital</h5>
-        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far,
-          in reverse chronological order.</p>
-      </div>
-    </a>
-  </div>
-
-  <div class="flex justify-center mt-4 mb-4">
-    <a href="#"
-      class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mx-auto">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-        src="/personalizacion.jpg" alt="">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Colaboraciones</h5>
-        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far,
-          in reverse chronological order.</p>
-      </div>
-    </a>
-  </div>
 
 
   <PiePagina />
@@ -118,6 +67,16 @@ export default {
   components: {
     PiePagina,
   },
+  data() {
+    return {
+      campaign: '',
+    }
+  },
+  mounted() {
+    let campaign = sessionStorage.getItem('campaign');
+    // Parsea la cadena de texto en formato JSON a un objeto JavaScript
+    this.campaign = JSON.parse(campaign);
+  }
 }
 
 </script>

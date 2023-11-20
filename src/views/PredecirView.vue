@@ -109,19 +109,24 @@ export default {
       const formData = new FormData();
       formData.append('tematica', this.tematica);
       formData.append('rubro', this.rubro);
-      formData.append('selected_classes', this.selectedClasses);
+      formData.append('classes', this.classes);
       formData.append('caracteristicas', this.caracteristicas);
-      this.img.forEach((element, index, array) => {
-      formData.append('images[]', element);
-      });
-      axios.post("http://localhost:5000/procesar_seg", formData,
+      if (this.img && this.img[0]) {
+        for (let i = 0; i < this.img[0].length; i++) {
+          formData.append('images[]', this.img[0][i]);
+        }
+      }
+      axios.post("http://127.0.0.1:5000/procesar_seg", formData,
       { headers: { 'Content-Type': 'multipart/form-data' } })
-      .then(function (result) {
-        console.log(result);
-      }, function (error) {
+      .then((response) => {
+        console.log(response);
+        sessionStorage.setItem('campaign', JSON.stringify(response.data[2].campaign));
+        //sessionStorage.setItem('campaign', JSON.stringify(response.data[3].titles));
+        this.$router.push('/view_campaign');
+      })
+      .catch((error) => {
         console.log(error);
       });
-
     },
   },
 };
