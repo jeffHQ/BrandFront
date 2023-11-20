@@ -9,7 +9,7 @@
     buscas.
   </p>
 
-  <img class="rounded-full w-[500px] h-[400px] mt-8 mb-8" src="/Padre.webp" alt="image description">
+  <img class="rounded-full w-[500px] h-[400px] mt-8 mb-8" :src="image" alt="image description">
 
   <div class="relative overflow-x-auto w-[1000px] mx-auto mb-10">
     <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-black">{{ campaign.DESCRIPCION }}</h2>
@@ -34,6 +34,9 @@
     </table>
   </div>
 
+  <p class="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-black">
+    Ideas:
+  </p>
   <div class="flex justify-center mt-4 mb-4" v-for="(idea, index) in campaign.IDEAS" :key="index">
     <a href="#"
       class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mx-auto">
@@ -45,6 +48,9 @@
     </a>
   </div>
   
+  <p class="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-black">
+    Colaboraciones:
+  </p>
   <div class="flex justify-center mt-10 mb-10">
   <ul class="relative border-s border-gray-200 dark:border-gray-700">                  
     <li class="mb-10 ms-4" v-for="(colaboracion, index) in campaign.COLABORACIONES" :key="index">
@@ -70,12 +76,13 @@ export default {
   data() {
     return {
       campaign: '',
+      image: ''
     }
   },
   mounted() {
     let campaign = sessionStorage.getItem('campaign');
-    // Parsea la cadena de texto en formato JSON a un objeto JavaScript
     this.campaign = JSON.parse(campaign);
+    this.image = sessionStorage.getItem('image');
   }
 }
 
