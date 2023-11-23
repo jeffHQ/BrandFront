@@ -36,7 +36,7 @@
   <div class="flex justify-center">
     <div class="w-full md:w-3/4 lg:w-1/2 xl:w-2/5">
       <div class="relative w-full min-w-[200px]">
-        <textarea v-model="caracteristicas"
+        <textarea v-model="detalles"
           class="peer h-full min-h-[300px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
           placeholder=" "></textarea>
         <label
@@ -98,12 +98,11 @@ export default {
   name: 'PredecirView',
   data() {
     return {
-      img: [],
       images: [],
-      classes: [1, 2, 3, 4],
+      classes: [1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17],
       tematica: '',
       rubro: '',
-      caracteristicas: '',
+      detalles: '',
       loading: false,
     };
   },
@@ -112,12 +111,11 @@ export default {
   },
   methods: {
     cargarImagen(event) {
-      this.img = [event.target.files];
       const files = event.target.files;
       for (let i = 0; i < files.length; i++) {
         this.images.push(URL.createObjectURL(files[i]));
       }
-      this.$refs.fileInput.value = null; // Limpia el valor del input de archivo
+      //this.$refs.fileInput.value = null; // Limpia el valor del input de archivo
     },
     eliminarImagen(index) {
       this.images.splice(index, 1);
@@ -126,21 +124,25 @@ export default {
       const formData = new FormData();
       formData.append('tematica', this.tematica);
       formData.append('rubro', this.rubro);
+      formData.append('detalles', this.detalles);
       formData.append('classes', this.classes);
-      formData.append('caracteristicas', this.caracteristicas);
-      if (this.img && this.img[0]) {
-        for (let i = 0; i < this.img[0].length; i++) {
-          formData.append('images[]', this.img[0][i]);
-        }
+      if (this.images) {
+        for (let i = 0; i < this.$refs.fileInput.files.length; i++) {
+          formData.append(`images[]`, this.$refs.fileInput.files[i]);
+      }
+      }
+      for (let pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
       }
       this.loading = true;
       axios.post("http://127.0.0.1:5000/procesar_seg", formData,
         { headers: { 'Content-Type': 'multipart/form-data' } })
         .then((response) => {
           console.log(response);
+          // COMENTAR TODO LO DE ABAJO SI NO VAS A USAR CHAT GPT  Y SOLO PRUEBAS EN CONSOLA
           sessionStorage.setItem('campaign', JSON.stringify(response.data[2].campaign));
           sessionStorage.setItem('image', response.data[3].image)
-          //sessionStorage.setItem('campaign', JSON.stringify(response.data[3].titles));
+          sessionStorage.setItem('campaign', JSON.stringify(response.data[3].titles));
           this.$router.push('/view_campaign');
           this.loading = false;
         })
